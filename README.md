@@ -4,6 +4,8 @@ Pal is a command-line calendar on unixoid systems - and it's really small, fast 
 
 This little script converts an ical to a pal-compatible eventfile
 
+![Screenshot](documentation/example.png)
+
 ## License
 
 This script is licensed under the GPLv3 or later
