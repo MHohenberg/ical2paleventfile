@@ -10,7 +10,7 @@ from dateutil import tz
 
 homedir = expanduser("~")
 
-config_file = homedir+'/.ical2paleventfile/calendars'
+config_file = homedir+'/.ical2paleventfile/calendars.conf'
 
 parser = SafeConfigParser()
 parser.read(config_file)
