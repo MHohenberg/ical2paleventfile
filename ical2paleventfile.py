@@ -13,42 +13,42 @@ parser = SafeConfigParser()
 parser.read(config)
 
 for section in parser.sections():
-	
-	url = parser.get(section, "url")
-	output = parser.get(section, "palname")
-	calendarname = parser.get(section, "shorthand")+" "+parser.get(section, "name")
+    
+    url = parser.get(section, "url")
+    output = parser.get(section, "palname")
+    calendarname = parser.get(section, "shorthand")+" "+parser.get(section, "name")
 
-	print "url: "+url+"\n"
-	print "pal: "+output+"\n"
-	print "calendar name: "+calendarname+"\n";
+    print "url: "+url
+    print "pal: "+output
+    print "calendar name: "+calendarname
 
-	c = Calendar(urlopen(url).read().decode('utf-8'))
+    c = Calendar(urlopen(url).read().decode('utf-8'))
 
-	f = open(output, 'w')
-	f.write(calendarname+"\n")
+    f = open(output, 'w')
+    f.write(calendarname+"\n")
 
-	errorcounter = 0
+    errorcounter = 0
 
-	for event in c.events:
+    for event in c.events:
 
-		try:
-			name = event.name
-			if (name.isspace() or len(name) == 0):
-				name = "[Event without title]"
+        try:
+            name = event.name
+            if (name.isspace() or len(name) == 0):
+                name = "[Event without title]"
 
-			beginstring = str(event.begin).replace('-','')[:8]
-			endstring = beginstring
-			if (event.has_end):
-				endstring = str(event.end).replace('-', '')[:8]
-	
-			if (beginstring == endstring):
-				f.write(beginstring+" "+ name+"\n")
-			else:
-				f.write("DAILY:"+beginstring+":"+endstring+" "+name+"\n")
+            beginstring = str(event.begin).replace('-','')[:8]
+            endstring = beginstring
+            if (event.has_end):
+                endstring = str(event.end).replace('-', '')[:8]
+    
+            if (beginstring == endstring):
+                f.write(beginstring+" "+ name+"\n")
+            else:
+                f.write("DAILY:"+beginstring+":"+endstring+" "+name+"\n")
 
-		except UnicodeEncodeError:
-			errorcounter = errorcounter+1
-			print "Bloop "+str(errorcounter)
+        except UnicodeEncodeError:
+            errorcounter = errorcounter+1
+            print "Bloop "+str(errorcounter)
 
-	f.close()
+    f.close()
 

@@ -1,14 +1,18 @@
 # ical2paleventfile
 
-I love pal. Pal is a command-line calendar on unixoid systems. 
+Pal is a command-line calendar on unixoid systems - and it's really small, fast and cool, especially when you work with the console a lot of time to begin with. Most of us keep their calendars in some kind of online way today, though, so synchronisation is a bit of a pain. 
 
-This little script converts an ical to a pal-compatible file
+This little script converts an ical to a pal-compatible eventfile
+
+## License
+
+This script is licensed under the GPLv3 or later
 
 ## Requirements
 
 * ics 0.31 or later (pip install ics)
 
-## configuration
+## Configuration
 
 ical2paleventfile reads the config file ~/.ical2paleventfile/calendars 
 
