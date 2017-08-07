@@ -21,7 +21,7 @@ ical2paleventfile reads the config file ~/.ical2paleventfile/calendars.conf
 You can add as many calendars as you want
 
     [calendar0815]   # Make sure the section name is different for every calendar
-    url = [URL of the ICS file]
+    url = [URL of the ICS file - escape % with %%]
     palname = [output pal event filename] # always in your userdir under ~/.pal
     name = [name of the calendar]
     shorthand = [2-character shortcode]
