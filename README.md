@@ -8,7 +8,7 @@ This little script converts an ical to a pal-compatible eventfile
 
 ## License
 
-This script is licensed under the GPLv3 or later
+This script is licensed under the GPLv3 or later.
 
 ## Requirements
 

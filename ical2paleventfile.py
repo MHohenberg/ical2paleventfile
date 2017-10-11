@@ -49,7 +49,7 @@ for section in parser.sections():
     for event in c.events:
         
         try:
-            name = event.name
+            name = event.name.encode("utf-8")
             if (name.isspace() or len(name) == 0):
                 name = "[Event without title]"
             
