@@ -50,8 +50,10 @@ for section in parser.sections():
     f = open(pal_file, 'w')
     f.write(calendarname+"\n")
 
+    eventcounter = 0
+
     for event in c.events:
-        
+        eventcounter = eventcounter+1
         try:
             name = event.name.encode("utf-8")
             if (name.isspace() or len(name) == 0):
@@ -75,4 +77,6 @@ for section in parser.sections():
             print "UnicodeEncodeError"
     
     f.close()
+    print str(eventcounter)+" events imported \n"
+    
 
