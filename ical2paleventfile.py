@@ -23,10 +23,14 @@ from ConfigParser import SafeConfigParser
 import datetime as dt
 from datetime import datetime
 from dateutil import tz
+import os
 
 homedir = expanduser("~")
 
 config_file = homedir+'/.ical2paleventfile/calendars.conf'
+
+if os.path.isfile(config_file) == False:
+    raise Exception('Config file '+config_file+' does not exist')
 
 parser = SafeConfigParser()
 parser.read(config_file)
