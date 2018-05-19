@@ -12,7 +12,9 @@ This script is licensed under the GPLv3 or later.
 
 ## Requirements
 
-* ics 0.31 or later (--> pip install ics)
+* Python 3
+* ics 0.4 or later (--> pip install ics)
+
 
 ## Installation
 
