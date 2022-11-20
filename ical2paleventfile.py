@@ -24,6 +24,12 @@ import datetime as dt
 from datetime import datetime
 from dateutil import tz
 import os
+import urllib
+from base64 import b64encode
+
+def basic_auth(username, password):
+  token = b64encode(f"{username}:{password}".encode('utf-8')).decode("ascii")
+  return f'Basic {token}'
 
 homedir = expanduser("~")
 
@@ -43,9 +49,14 @@ for section in parser.sections():
   print ("url: ",url)
   print ("pal: ",pal_file)
   print ("calendar name: ",calendarname)
+
+  parsed = urllib.parse.urlparse(url)
   
   http = urllib3.PoolManager()
-  response = http.request('GET', url)
+  headers = None
+  if parsed.username is not None and parsed.password is not None:
+    headers = { 'Authorization' : basic_auth(parsed.username, parsed.password) }
+  response = http.request('GET', url, headers=headers)
 
   c = Calendar(response.data.decode('utf-8'))
   
