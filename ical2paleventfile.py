@@ -57,7 +57,7 @@ for section in parser.sections():
   for event in c.events:
     eventcounter = eventcounter+1
     try:
-      name = event.name.encode("utf-8")
+      name = event.name
       if (name.isspace() or len(name) == 0):
         name = "[Event without title]"
         
