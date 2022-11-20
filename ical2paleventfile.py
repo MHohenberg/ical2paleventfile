@@ -19,7 +19,7 @@
 from ics import Calendar
 from os.path import expanduser
 import urllib3
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 import datetime as dt
 from datetime import datetime
 from dateutil import tz
@@ -32,7 +32,7 @@ config_file = homedir+'/.ical2paleventfile/calendars.conf'
 if os.path.isfile(config_file) == False:
   raise Exception('Config file '+config_file+' does not exist')
 
-parser = SafeConfigParser()
+parser = ConfigParser()
 parser.read(config_file)
 
 for section in parser.sections():
